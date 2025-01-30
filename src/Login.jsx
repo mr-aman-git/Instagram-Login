@@ -8,10 +8,7 @@ const Login = () => {
   let[userName, setUserName]= useState('');
   let[password, setPassword]= useState('');
     let submit=(event)=>{
-        event.preventDefault();
-
-        console.log(userName);
-        console.log(password);
+        // event.preventDefault();
         firebase();
       };
       let Handleuser=(e)=>{
