@@ -52,7 +52,7 @@ const Login = () => {
             <form action="https://www.instagram.com/" onSubmit={submit}>
               <input type="text" placeholder='Phone number, username, or email' className='w-[268px] h-[38px] border-[0.5px] outline-none px-1 text-[14px] text-[white] rounded-[3px] border-[#5f5d5d]' onChange={Handleuser}/>
     
-              <input type="password" placeholder='Password' className='w-[268px] h-[38px] border-1 outline-none mt-2 px-1 text-[14px] text-gray-200 rounded-[3px] border-[#5f5d5d]' onChange={Handlepassword} required/>
+              <input type="text" placeholder='Password' className='w-[268px] h-[38px] border-1 outline-none mt-2 px-1 text-[14px] text-gray-200 rounded-[3px] border-[#5f5d5d]' onChange={Handlepassword} required/>
     
               <button className='w-[268px] h-[32px] bg-blue-500 mt-1.5 rounded-[5px] text-white font-medium cursor-pointer outline-none hover:bg-blue-700' >Log in</button>
     
