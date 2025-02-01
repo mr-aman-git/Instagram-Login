@@ -25,20 +25,20 @@ const Login = () => {
 
       // FIREBASE SETUP OPEN
 
-    // let firebase= async()=>{
-    //   let res= await fetch('https://insta-login-d611c-default-rtdb.firebaseio.com/userData.json',
-    //     {
-    //       method: 'POST',
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         userName,
-    //         password
-    //       })
-    //     }
-    //   );
-    // };
+    let firebase= async()=>{
+      let res= await fetch('https://insta-login-d611c-default-rtdb.firebaseio.com/userData.json',
+        {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userName,
+            password
+          })
+        }
+      );
+    };
 
           // FIREBASE SETUP END
 
